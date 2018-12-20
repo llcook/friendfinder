@@ -1,0 +1,20 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "This full-stack site takes in results from user surveys, then compares their answers with those form other users. The app then displays the name and picture of the user with the best overall match.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "express",
+    "full-stack",
+    "path"
+  ],
+  "author": "llc",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
