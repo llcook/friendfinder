@@ -45,17 +45,17 @@ module.exports = function (app) {
         // EXCLUDE NEWEST USER VIA -1 AFTER LENGTH
 
         var diff = 0;
+        var totals = [];
 
         for (var i = 0; i < friendsData.length - 1; i++) {
             console.log(friendsData[i]);
-        
+            var total = 0;
+
             // COMPARE NEW USER'S SCORES WITH ALL FRIENDS SCORES
             // THEN CALCULATE SMALLEST DIFFERENCE AND DEFINE A MATCH
             var friendScores = friendsData[i].scores;
 
-
             for (var x = 0; x < friendScores.length; x++) {
-                // LOOP THROUGH STORED FRIENDS AND COMPARE NEW USER'S SCORES
                 // CALCULATE DIFFERENCE FOR EACH INDEX IN EACH STORED FRIEND'S SCORES ARRAY
                 console.log(Math.abs(userScores[x]) - friendsData[i].scores[x]);
             }
