@@ -6,7 +6,8 @@
     <meta charset="UTF=8" />
 
     <!-- JQUERY -->
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 
     <!-- BOOTSTRAP STYLE -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -17,38 +18,20 @@
 
 <body>
 
-    <!-- FORM -->
-    <div class="container" id="survey">
+    <!-- SURVEY TO APPEAR DYNAMICALLY VIA survey.js -->
+    <div class="container" id="survey"></div>
 
-
-
-        <!-- SURVEY FUNCTIONALITY -->
-
-        <script type="text/javascript" src="../javascript/survey.js"></script>
-
-    </div>
-
-    <!-- FOOTER -->
-
+    <!-- FOOTER MENU -->
     <footer class="footer">
         <div class="container">
-            <p><a href="#">API Friends List</a> | <a href="#">GitHub Repo</a>
+            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/llcook/friendfinder">GitHub
+                    Repo</a>
         </div>
     </footer>
 
 </body>
 
+<!-- SURVEY -->
+<script type="text/javascript" src="../javascript/survey.js"></script>
+
 </html>
-
-<!-- SUBMIT ANSWERS -->
-
- <!-- REFERENCE app.js FILE? -->
-
- <!-- <script src="../javascript/app.js"></script> -->
-
-<!-- <script type="text/javascript">
-    $("#submit").on("click", function (event) {
-        event.preventDefault();
-        console.log(surveyResponse);
-    })
-</script> -->
