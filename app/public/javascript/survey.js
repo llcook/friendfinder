@@ -144,8 +144,6 @@ function submit() {
             scores: answers
         };
 
-        console.log(friendData);
-
         $.post("/api/friends", friendData)
         .then(function(data) {
             console.log("New friend added: " + (JSON.stringify(data)));

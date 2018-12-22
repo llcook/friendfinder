@@ -16,7 +16,6 @@ module.exports = function (app) {
 
         // STORE NEW USER'S DATA INPUT
         var userInput = req.body;
-        console.log(userInput);
 
         // PUSH NEW USER'S DATA TO FRIENDS ARRAY
         // (IT SEEMS IF THIS IS PLACED AT THE BOTTOM OF THE .post, IT BREAKS THE $.post IN survey.js)
@@ -41,17 +40,29 @@ module.exports = function (app) {
             ratingDiff: 1000
         };
         var userScores = userInput.scores;
-        var diff = 0;
 
         // LOOP THROUGH ALL FRIENDS IN friends.js
         // EXCLUDE NEWEST USER VIA -1 AFTER LENGTH
-        for (var i = 0; i < friendsData.length - 1; i++) {
 
+        var diff = 0;
+
+        for (var i = 0; i < friendsData.length - 1; i++) {
+            console.log(friendsData[i]);
+        
             // COMPARE NEW USER'S SCORES WITH ALL FRIENDS SCORES
             // THEN CALCULATE SMALLEST DIFFERENCE AND DEFINE A MATCH
-            
+            var friendScores = friendsData[i].scores;
+
+
+            for (var x = 0; x < friendScores.length; x++) {
+                // LOOP THROUGH STORED FRIENDS AND COMPARE NEW USER'S SCORES
+                // CALCULATE DIFFERENCE FOR EACH INDEX IN EACH STORED FRIEND'S SCORES ARRAY
+                console.log(Math.abs(userScores[x]) - friendsData[i].scores[x]);
+            }
         }
-        console.log(match);
+
+        // Once you've found the current user's most compatible friend, display the result as a modal pop-up.
+        // The modal should display both the name and picture of the closest match.
     })
 
 };
