@@ -33,36 +33,41 @@ module.exports = function (app) {
 
         userInput.scores = newUserScores;
 
-        // LOOP THROUGH SCORES AND COMPARE FOR COMPATIBILITY MATCH
-        var match = {
-            name: "",
-            photo: "",
-            ratingDiff: 1000
-        };
+        // FUNCTIONALITY TO COMPARE NEW USER WITH STORED USER SCORES
+
+        var totals = [];
         var userScores = userInput.scores;
 
-        // LOOP THROUGH ALL FRIENDS IN friends.js
-        // EXCLUDE NEWEST USER VIA -1 AFTER LENGTH
-
-        var diff = 0;
-        var totals = [];
-
+        // LOOP THROUGH STORED FRIENDS SCORES
         for (var i = 0; i < friendsData.length - 1; i++) {
-            console.log(friendsData[i]);
             var total = 0;
+            scores = friendsData[i].scores;
 
-            // COMPARE NEW USER'S SCORES WITH ALL FRIENDS SCORES
-            // THEN CALCULATE SMALLEST DIFFERENCE AND DEFINE A MATCH
-            var friendScores = friendsData[i].scores;
-
-            for (var x = 0; x < friendScores.length; x++) {
-                // CALCULATE DIFFERENCE FOR EACH INDEX IN EACH STORED FRIEND'S SCORES ARRAY
-                console.log(Math.abs(userScores[x]) - friendsData[i].scores[x]);
+            // CALCULATE DIFFERENCE BETWEEN NEW USER'S SCORES AND EACH STORED FRIEND'S SCORES
+            for (var x = 0; x < scores.length; x++) {
+                var diff = Math.abs(userScores[x] - friendsData[i].scores[x]);
+                total += diff;
             }
+
+            // PUSHES THE CALCULATED DIFFERENCES INTO AN ARRAY
+            totals.push(total);
         }
+
+        // STORES THE LOWEST VALUE IN THE ARRAY AND FINDS A MATCH
+        // VIA https://github.com/achapman77
+
+        var min = Math.min.apply(null, totals);
+        var index = totals.indexOf(min);
+        var match = friendsData[index];
+
+        /////////////////////////////////////
+
+        console.log("new user added: " + userInput.name + " " + userInput.scores);
+        console.log("your match is " + match.name);
+        console.log("match info: " + match.name + " " + match.scores);
 
         // Once you've found the current user's most compatible friend, display the result as a modal pop-up.
         // The modal should display both the name and picture of the closest match.
-    })
+    });
 
 };
