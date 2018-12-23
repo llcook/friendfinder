@@ -144,10 +144,17 @@ function submit() {
             scores: answers
         };
 
-        $.post("/api/friends", friendData)
-        .then(function(data) {
-            console.log("New friend added: " + (JSON.stringify(data)));
+
+        $.post("/api/friends", friendData, function (data) {
+            $("#matchName").text(data.name);
+            $("#matchPhoto").attr("src", data.photo);
+            $("#matchModal").modal("toggle");
         });
+
+        // $.post("/api/friends", friendData)
+        // .then(function(data) {
+        //     console.log("New friend added: " + (JSON.stringify(data)));
+        // });
 
     });
 

@@ -12,6 +12,7 @@ module.exports = function (app) {
         res.json(friendsData);
     });
 
+    // ADDS NEW USER TO FRIENDS JSON AND CALCULATES THEIR BEST MATCH
     app.post("/api/friends", function (req, res) {
 
         // STORE NEW USER'S DATA INPUT
@@ -20,9 +21,6 @@ module.exports = function (app) {
         // PUSH NEW USER'S DATA TO FRIENDS ARRAY
         // (IT SEEMS IF THIS IS PLACED AT THE BOTTOM OF THE .post, IT BREAKS THE $.post IN survey.js)
         friendsData.push(userInput);
-
-        // STORES NEW USER'S DATA IN res.json OBJECT THAT'S REFERENCED IN FRONT-END console.log
-        res.json(userInput);
 
         // LOOP THROUGH NEW USER'S SCORES AND CONVERT TO INTEGERS
         var newUserScores = [];
@@ -62,12 +60,12 @@ module.exports = function (app) {
 
         /////////////////////////////////////
 
+        // STORES THE MATCH, WHICH IS DISPLAYED VIA MODAL ON FRONT END
+        res.json(match);
+
         console.log("new user added: " + userInput.name + " " + userInput.scores);
         console.log("your match is " + match.name);
         console.log("match info: " + match.name + " " + match.scores);
-
-        // Once you've found the current user's most compatible friend, display the result as a modal pop-up.
-        // The modal should display both the name and picture of the closest match.
     });
 
 };
