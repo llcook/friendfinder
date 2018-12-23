@@ -54,7 +54,7 @@ module.exports = function (app) {
         }
 
         // STORES THE LOWEST VALUE IN THE ARRAY AND FINDS A MATCH
-        // VIA https://github.com/achapman77
+        // VIA https://github.com/braydenc303
 
         var min = Math.min.apply(null, totals);
         var index = totals.indexOf(min);
