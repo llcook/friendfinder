@@ -1,0 +1,23 @@
+/* SPACING FOR FORM INPUTS */
+.form-control {
+    margin: 0px;
+    width: 50%;
+}
+
+.form-control-sm {
+    width: 25%;
+}
+
+p {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+#submit {
+    margin-top: 30px;
+}
+
+body {
+    margin: 20px;
+}
